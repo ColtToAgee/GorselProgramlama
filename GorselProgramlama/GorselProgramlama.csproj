@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D988FA85-7F2C-4E56-A974-0D62BFC25FB4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GorselProgramlama</RootNamespace>
+    <AssemblyName>GorselProgramlama</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.143\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Screens\AdminScreens\AdminHomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminHomeScreen.Designer.cs">
+      <DependentUpon>AdminHomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementAddProductScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementAddProductScreen.Designer.cs">
+      <DependentUpon>AdminProductManagementAddProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementDeleteProductScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementDeleteProductScreen.Designer.cs">
+      <DependentUpon>AdminProductManagementDeleteProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementEditProductScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementEditProductScreen.Designer.cs">
+      <DependentUpon>AdminProductManagementEditProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminProductManagementScreen.Designer.cs">
+      <DependentUpon>AdminProductManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementAddStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementAddStorageScreen.Designer.cs">
+      <DependentUpon>AdminStorageManagementAddStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementDeleteStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementDeleteStorageScreen.Designer.cs">
+      <DependentUpon>AdminStorageManagementDeleteStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementEditStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementEditStorageScreen.Designer.cs">
+      <DependentUpon>AdminStorageManagementEditStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminStorageManagementScreen.Designer.cs">
+      <DependentUpon>AdminStorageManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminSupplyManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminSupplyManagementScreen.Designer.cs">
+      <DependentUpon>AdminSupplyManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementDeleteUserScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementDeleteUserScreen.Designer.cs">
+      <DependentUpon>AdminUserManagementDeleteUserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementAddUserScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementAddUserScreen.Designer.cs">
+      <DependentUpon>AdminUserManagementAddUserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementEditUserScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementEditUserScreen.Designer.cs">
+      <DependentUpon>AdminUserManagementEditUserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\AdminScreens\AdminUserManagementScreen.Designer.cs">
+      <DependentUpon>AdminUserManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementAddStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementAddStorageScreen.Designer.cs">
+      <DependentUpon>CustomerStorageManagementAddStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementDeleteStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementDeleteStorageScreen.Designer.cs">
+      <DependentUpon>CustomerStorageManagementDeleteStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementEditStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementEditStorageScreen.Designer.cs">
+      <DependentUpon>CustomerStorageManagementEditStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\BuIsimDahaOnceKullanilmis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\BuIsimDahaOnceKullanilmis.Designer.cs">
+      <DependentUpon>BuIsimDahaOnceKullanilmis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerHomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerHomeScreen.Designer.cs">
+      <DependentUpon>CustomerHomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerOrderManagementEditAndDeleteOrderScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerOrderManagementEditAndDeleteOrderScreen.Designer.cs">
+      <DependentUpon>CustomerOrderManagementEditAndDeleteOrderScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerOrderManagementNewOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerOrderManagementNewOrder.Designer.cs">
+      <DependentUpon>CustomerOrderManagementNewOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerOrderManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerOrderManagementScreen.Designer.cs">
+      <DependentUpon>CustomerOrderManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStockManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStockManagementScreen.Designer.cs">
+      <DependentUpon>CustomerStockManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomersScreens\CustomerStorageManagementScreen.Designer.cs">
+      <DependentUpon>CustomerStorageManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\FailedLoginModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\FailedLoginModal.Designer.cs">
+      <DependentUpon>FailedLoginModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\FirstScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\FirstScreen.Designer.cs">
+      <DependentUpon>FirstScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\GerekliAlanlariDoldur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\GerekliAlanlariDoldur.Designer.cs">
+      <DependentUpon>GerekliAlanlariDoldur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admins.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\ErrorLogs.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\StaticEntities.cs" />
+    <Compile Include="Models\StorageCapacity.cs" />
+    <Compile Include="Models\Storages.cs" />
+    <Compile Include="Models\Suppliers.cs" />
+    <Compile Include="Models\SupplyHistory.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\HomeAndLoginScreens\StokAzaldi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\HomeAndLoginScreens\StokAzaldi.Designer.cs">
+      <DependentUpon>StokAzaldi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\StokYetersiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\StokYetersiz.Designer.cs">
+      <DependentUpon>StokYetersiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementAddProductScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementAddProductScreen.Designer.cs">
+      <DependentUpon>SupplierProductManagementAddProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementDeleteProductScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementDeleteProductScreen.Designer.cs">
+      <DependentUpon>SupplierProductManagementDeleteProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementEditProductScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementEditProductScreen.Designer.cs">
+      <DependentUpon>SupplierProductManagementEditProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierProductManagementScreen.Designer.cs">
+      <DependentUpon>SupplierProductManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStockManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStockManagementScreen.Designer.cs">
+      <DependentUpon>SupplierStockManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementAddStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementAddStorageScreen.Designer.cs">
+      <DependentUpon>SupplierStorageManagementAddStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementDeleteStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementDeleteStorageScreen.Designer.cs">
+      <DependentUpon>SupplierStorageManagementDeleteStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementEditStorageScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementEditStorageScreen.Designer.cs">
+      <DependentUpon>SupplierStorageManagementEditStorageScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierStorageManagementScreen.Designer.cs">
+      <DependentUpon>SupplierStorageManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierHomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierHomeScreen.Designer.cs">
+      <DependentUpon>SupplierHomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierSupplyManagementScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SupplierScreens\SupplierSupplyManagementScreen.Designer.cs">
+      <DependentUpon>SupplierSupplyManagementScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AuthorizeService.cs" />
+    <Compile Include="Services\DbService.cs" />
+    <Compile Include="Services\Extensions.cs" />
+    <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Services\SupplyService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <EmbeddedResource Include="Screens\AdminScreens\AdminHomeScreen.resx">
+      <DependentUpon>AdminHomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminProductManagementAddProductScreen.resx">
+      <DependentUpon>AdminProductManagementAddProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminProductManagementDeleteProductScreen.resx">
+      <DependentUpon>AdminProductManagementDeleteProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminProductManagementEditProductScreen.resx">
+      <DependentUpon>AdminProductManagementEditProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminProductManagementScreen.resx">
+      <DependentUpon>AdminProductManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminStorageManagementAddStorageScreen.resx">
+      <DependentUpon>AdminStorageManagementAddStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminStorageManagementDeleteStorageScreen.resx">
+      <DependentUpon>AdminStorageManagementDeleteStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminStorageManagementEditStorageScreen.resx">
+      <DependentUpon>AdminStorageManagementEditStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminStorageManagementScreen.resx">
+      <DependentUpon>AdminStorageManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminSupplyManagementScreen.resx">
+      <DependentUpon>AdminSupplyManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminUserManagementDeleteUserScreen.resx">
+      <DependentUpon>AdminUserManagementDeleteUserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminUserManagementAddUserScreen.resx">
+      <DependentUpon>AdminUserManagementAddUserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminUserManagementEditUserScreen.resx">
+      <DependentUpon>AdminUserManagementEditUserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AdminScreens\AdminUserManagementScreen.resx">
+      <DependentUpon>AdminUserManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerStorageManagementAddStorageScreen.resx">
+      <DependentUpon>CustomerStorageManagementAddStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerStorageManagementDeleteStorageScreen.resx">
+      <DependentUpon>CustomerStorageManagementDeleteStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerStorageManagementEditStorageScreen.resx">
+      <DependentUpon>CustomerStorageManagementEditStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\HomeAndLoginScreens\BuIsimDahaOnceKullanilmis.resx">
+      <DependentUpon>BuIsimDahaOnceKullanilmis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerHomeScreen.resx">
+      <DependentUpon>CustomerHomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerOrderManagementEditAndDeleteOrderScreen.resx">
+      <DependentUpon>CustomerOrderManagementEditAndDeleteOrderScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerOrderManagementNewOrder.resx">
+      <DependentUpon>CustomerOrderManagementNewOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerOrderManagementScreen.resx">
+      <DependentUpon>CustomerOrderManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerStockManagementScreen.resx">
+      <DependentUpon>CustomerStockManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomersScreens\CustomerStorageManagementScreen.resx">
+      <DependentUpon>CustomerStorageManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\HomeAndLoginScreens\FailedLoginModal.resx">
+      <DependentUpon>FailedLoginModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\HomeAndLoginScreens\FirstScreen.resx">
+      <DependentUpon>FirstScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\HomeAndLoginScreens\GerekliAlanlariDoldur.resx">
+      <DependentUpon>GerekliAlanlariDoldur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\HomeAndLoginScreens\LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Screens\HomeAndLoginScreens\StokAzaldi.resx">
+      <DependentUpon>StokAzaldi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\StokYetersiz.resx">
+      <DependentUpon>StokYetersiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierHomeScreen.resx">
+      <DependentUpon>SupplierHomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierProductManagementAddProductScreen.resx">
+      <DependentUpon>SupplierProductManagementAddProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierProductManagementDeleteProductScreen.resx">
+      <DependentUpon>SupplierProductManagementDeleteProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierProductManagementEditProductScreen.resx">
+      <DependentUpon>SupplierProductManagementEditProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierProductManagementScreen.resx">
+      <DependentUpon>SupplierProductManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierStockManagementScreen.resx">
+      <DependentUpon>SupplierStockManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierStorageManagementAddStorageScreen.resx">
+      <DependentUpon>SupplierStorageManagementAddStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierStorageManagementDeleteStorageScreen.resx">
+      <DependentUpon>SupplierStorageManagementDeleteStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierStorageManagementEditStorageScreen.resx">
+      <DependentUpon>SupplierStorageManagementEditStorageScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierStorageManagementScreen.resx">
+      <DependentUpon>SupplierStorageManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SupplierScreens\SupplierSupplyManagementScreen.resx">
+      <DependentUpon>SupplierSupplyManagementScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
