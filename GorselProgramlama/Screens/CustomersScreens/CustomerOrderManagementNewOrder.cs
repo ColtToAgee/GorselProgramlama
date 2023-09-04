@@ -18,6 +18,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
     {
         public Products SelectedProduct = new Products();
         public string SelectedCategory;
+        //Tabloya veri yüklemek için kullanılan fonksiyon
         public void RefreshTable()
         {
             var category = ProductService.GetCategoryWithName(SelectedCategory);
@@ -27,6 +28,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
         public CustomerOrderManagementNewOrder()
         {
             InitializeComponent();
+            //Ürün kategorisi seçiniz alanına kategori isimlerinin doldurulduğu alan
             foreach(var item in ProductService.GetCategoryNames())
             {
                 comboBox1.Items.Add(item);
@@ -43,12 +45,14 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Kategori seçildiği anda tabloya verilerin getirildiği kısım
             SelectedCategory = comboBox1.GetItemText(comboBox1.SelectedItem);
             RefreshTable();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablodan kayıt seçildiği anda değişkenin doldurulduğu kısım
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedProduct.Id = (int)selectedRow.Cells[4].Value;
@@ -59,6 +63,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Sipariş vere tıklandığında çalışacak kısım
             var newOrder = new SupplyHistory();
             if(SelectedProduct!=null && numericUpDown2.Value!=0)
             {
@@ -67,7 +72,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
                 newOrder.Customer = StaticEntities.ActiveUsername;
                 newOrder.ProductTotal = (int)numericUpDown2.Value;
                 newOrder.IsCompleted= 0;
-                if((int)numericUpDown2.Value >= 100)
+                if((int)numericUpDown2.Value >= 100)//100 den fazla sipariş girildiğinde indirim yapıldığı kısım
                     newOrder.OrderCost = ((Convert.ToDouble(numericUpDown2.Value) * SelectedProduct.ProductCost)*90)/100;
                 else
                     newOrder.OrderCost = Convert.ToDouble(numericUpDown2.Value) * SelectedProduct.ProductCost;

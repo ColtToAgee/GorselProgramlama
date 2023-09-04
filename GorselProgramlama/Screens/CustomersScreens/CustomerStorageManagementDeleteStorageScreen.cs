@@ -18,6 +18,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
         public CustomerStorageManagementDeleteStorageScreen()
         {
             InitializeComponent();
+            //Müşterinin depolarının listelendiği kısım
             using (var db = new DbService())
             {
                 dataGridView1.DataSource = db.GetList<Storages>($"{nameof(Storages.StorageOwnerUsername)}='{StaticEntities.ActiveUsername}'");
@@ -26,6 +27,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //Silme işleminin yapıldığı kısım
             using (var db = new DbService())
             {
                 if (SelectedStorageId != null)
@@ -40,6 +42,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablo üzerinden kayıt seçilip hangi kayıdın silinceği belli ediliyor.
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedStorageId = selectedRow.Cells[4].Value.ToString();

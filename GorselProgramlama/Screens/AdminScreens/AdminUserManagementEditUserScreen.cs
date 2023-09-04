@@ -106,5 +106,6 @@ namespace GorselProgramlama.Screens.AdminScreens
             SelectedUserUserName = selectedRow.Cells[0].Value.ToString();
             SelectedUserPassword = selectedRow.Cells[1].Value.ToString();
         }
+
     }
 }

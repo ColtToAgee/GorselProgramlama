@@ -20,6 +20,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
         public CustomerOrderManagementEditAndDeleteOrderScreen()
         {
             InitializeComponent();
+            //Ürün kategorisi seçiniz alanına kategori isimlerinin yüklendiği yer
             var categories=ProductService.GetCategories();
             foreach (var item in categories)
             {
@@ -28,17 +29,20 @@ namespace GorselProgramlama.Screens.CustomersScreens
         }
         public void RefreshTable()
         {
+            //tabloya verilerin geldiği yer
             var orders = ProductService.GetOrdersWithCategoryNameForCustomer(SelectedCategory, StaticEntities.ActiveUsername);
             dataGridView5.DataSource = orders;
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Kategori seçildiği anda tabloya o kategorinin ürünlerinin getirildiği yer
             SelectedCategory = comboBox5.GetItemText(comboBox5.SelectedItem);
             RefreshTable();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Tabloda kayıt seçildiğinde değişkene atıldığı ve alanların doldurulduğu kısım
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView5.Rows[selectedRowIndex];
             SelectedOrder.Id = (int)selectedRow.Cells[7].Value;
@@ -52,6 +56,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Sipariş düzenle butonunun çalıştığı kısım
             if(numericUpDown1.Value != 0 && SelectedOrder != null)
             {
                 using(var db = new DbService())
@@ -72,6 +77,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Sipariş iptal etme butonunun çalıştığı kısım
             using(var db = new DbService())
             {
                 var order = db.FirstOrDefault<SupplyHistory>($"{nameof(SupplyHistory.Id)}={SelectedOrder.Id}");

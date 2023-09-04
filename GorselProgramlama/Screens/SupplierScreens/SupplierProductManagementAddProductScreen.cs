@@ -20,6 +20,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
         public SupplierProductManagementAddProductScreen()
         {
             InitializeComponent();
+            //Kategori alanına kategori isimlerinin yüklendiği kısım
             foreach (var item in ProductService.GetCategoryNames())
             {
                 comboBox1.Items.Add(item);
@@ -28,6 +29,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Ürün ekleme butonunun çalıştığı kısım
             var productName = textBox1.Text;
             var productSupplier = StaticEntities.ActiveUsername;
             var productCost = textBox3.Text;
@@ -46,7 +48,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
                         CreatedTime = DateTime.Now.ToString()
                     };
                     var productList = db.GetList<Products>($"{nameof(Products.ProductSupplier)}='{StaticEntities.ActiveUsername}'");
-                    if(productList.Where(a => a.ProductName == productName).Count() == 0)
+                    if(productList.Where(a => a.ProductName == productName).Count() == 0)//Eğer üründen daha önce yoksa eklendiği kısım
                         db.AddOrUpdateEntity(newProduct);
                     else
                     {

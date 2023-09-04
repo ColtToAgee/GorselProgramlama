@@ -21,6 +21,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
         public SupplierProductManagementEditProductScreen()
         {
             InitializeComponent();
+            //Kategori isimlerinin yüklendiği kısım
             foreach (var item in ProductService.GetCategoryNames())
             {
                 comboBox1.Items.Add(item);
@@ -29,6 +30,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Seçilen kategoriye göre o kategorinin ürünlerinin listelendiği kısım
             SelectedCategory = comboBox1.GetItemText(comboBox1.SelectedItem);
             if (SelectedCategory != null)
             {
@@ -42,6 +44,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablodan kayıt seçildiği zaman boşlukların doldurulduğu kısım
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedProductId = selectedRow.Cells[4].Value.ToString();
@@ -56,6 +59,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Kaydete basıldığında çalışan kısım
             if (textBox3.Text != "" && textBox2.Text != "")
             {
                 var product = new Products()

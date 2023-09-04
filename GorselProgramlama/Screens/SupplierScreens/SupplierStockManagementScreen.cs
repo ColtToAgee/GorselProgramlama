@@ -22,6 +22,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
         public SupplierStockManagementScreen()
         {
             InitializeComponent();
+            //Kullanıcının depolarının depo seçiniz alanına yüklendiği kısım
             using (var db = new DbService())
             {
                 var storageList = db.GetList<Storages>($"{nameof(Storages.StorageOwnerUsername)}='{StaticEntities.ActiveUsername}'");
@@ -30,6 +31,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
                     comboBox2.Items.Add(storage.StorageName);
                 }
             }
+            //Kategori seçiniz kısmına kategori isimlerinin yüklendiği kısım
             var categoryList = ProductService.GetCategories();
             foreach (var category in categoryList)
             {
@@ -38,6 +40,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
         }
         private void RefreshTable()
         {
+            //tabloya veri yükleme kısmı
             using (var db = new DbService())
             {
                 stockList = db.GetList<StorageCapacity>($"{nameof(StorageCapacity.Storage)}='{SelectedStorage}'");
@@ -47,6 +50,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablodan kayıt seçildiği anda boşlukların yüklendiği kısım ve değişkene atıldığı kısım
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedStock.Storage = selectedRow.Cells[0].Value.ToString();
@@ -59,12 +63,14 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Depo seçildikten sonra depodaki ürünlerin yüklendiği kısım
             SelectedStorage = comboBox2.GetItemText(comboBox2.SelectedItem);
             if (SelectedStorage != "")
             {
                 RefreshTable();
                 foreach (var item in stockList)
                 {
+                    //Depodaki ürünün sayısı 10 ve altına düştüğünde uyarı çıkarılan kısım
                     if (item.NumberOfProduct <= 10)
                     {
                         StokAzaldi stokAzaldi = new StokAzaldi();
@@ -77,9 +83,10 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Düzenleme butonu çalıştığı kısım
             if (comboBox1.Text != "" && numericUpDown1 != null)
             {
-                if (SelectedStock.Id == 0)
+                if (SelectedStock.Id == 0)//Stokta o üründen yoksa yeni stok oluşuyo
                 {
                     var newStock = new StorageCapacity()
                     {
@@ -93,7 +100,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
                         RefreshTable();
                     }
                 }
-                else
+                else//varsada adet alanındaki sayı yazılıyor
                 {
                     using (var db = new DbService())
                     {
@@ -115,6 +122,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //kategori seçildiği anda ürünlerin getirildiği kısım
             var categoyName = comboBox3.GetItemText(comboBox3.SelectedItem);
             var productList = ProductService.GetProductWithCategoryName(categoyName);
             comboBox1.Items.Clear();

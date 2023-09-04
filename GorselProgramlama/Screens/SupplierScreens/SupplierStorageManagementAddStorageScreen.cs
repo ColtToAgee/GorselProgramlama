@@ -17,6 +17,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Depo ekleme kısmı
             var newStorage = new Storages();
             newStorage.StorageOwnerUsername = StaticEntities.ActiveUsername;
             newStorage.StorageLocation = textBox2.Text;
@@ -25,7 +26,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
             using (var db = new DbService())
             {
                 var storageList = db.GetList<Storages>($"{nameof(Storages.StorageOwnerUsername)}='{StaticEntities.ActiveUsername}'");
-                if (storageList.Where(a => a.StorageName == newStorage.StorageName).Count() == 0)
+                if (storageList.Where(a => a.StorageName == newStorage.StorageName).Count() == 0)//İsmin daha önce kullanılıp kullanlmadığını kontrol ediyor
                     db.AddOrUpdateEntity(newStorage);
                 else
                 {

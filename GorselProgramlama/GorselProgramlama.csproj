@@ -308,7 +308,6 @@
     <Compile Include="Screens\SupplierScreens\SupplierSupplyManagementScreen.Designer.cs">
       <DependentUpon>SupplierSupplyManagementScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Services\AuthorizeService.cs" />
     <Compile Include="Services\DbService.cs" />
     <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\LogService.cs" />
@@ -462,6 +461,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Screens\HomeAndLoginScreens\logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

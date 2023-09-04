@@ -35,10 +35,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(278, 137);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(303, 146);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 60);
+            this.button1.Size = new System.Drawing.Size(133, 49);
             this.button1.TabIndex = 3;
             this.button1.Text = "Tamam";
             this.button1.UseVisualStyleBackColor = true;
@@ -48,8 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(17, 77);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(13, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(742, 31);
             this.label1.TabIndex = 2;
@@ -57,12 +55,13 @@
             // 
             // BuIsimDahaOnceKullanilmis
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
-            this.ClientSize = new System.Drawing.Size(772, 263);
+            this.ClientSize = new System.Drawing.Size(768, 251);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BuIsimDahaOnceKullanilmis";
             this.Text = "BuIsimDahaOnceKullanilmis";
             this.ResumeLayout(false);

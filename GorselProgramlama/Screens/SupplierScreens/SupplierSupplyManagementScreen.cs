@@ -18,6 +18,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
         public SupplierSupplyManagementScreen()
         {
             InitializeComponent();
+            //Siparişlerin listelendiği kısım
             using (var db = new DbService())
             {
                 dataGridView1.DataSource = db.GetList<SupplyHistory>($"{nameof(SupplyHistory.Supplier)}='{StaticEntities.ActiveUsername}'");
@@ -26,6 +27,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablodan kayıt seçildiği anda değişkenin doldurulduğu kısım
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedSupplyHistory.Id = (int)selectedRow.Cells[7].Value;
@@ -38,6 +40,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //siparişi tamamla butonunun çalıştığı kısım
             using(var db = new DbService())
             {
                 if (SelectedSupplyHistory.Id != 0)
@@ -64,7 +67,10 @@ namespace GorselProgramlama.Screens.SupplierScreens
                             db.AddOrUpdateEntity(newCustomerStorageCapasity);
                         }
                         else
-                            customerStorageCapasity.NumberOfProduct= customerStorageCapasity.NumberOfProduct+SelectedSupplyHistory.ProductTotal;
+                        {
+                            customerStorageCapasity.NumberOfProduct = customerStorageCapasity.NumberOfProduct + SelectedSupplyHistory.ProductTotal;
+                            db.AddOrUpdateEntity(customerStorageCapasity);
+                        }
                         db.AddOrUpdateEntity(order);
                         db.AddOrUpdateEntity(stock);
                         dataGridView1.DataSource = db.GetList<SupplyHistory>($"{nameof(SupplyHistory.Supplier)}='{StaticEntities.ActiveUsername}'");

@@ -84,6 +84,5 @@ namespace GorselProgramlama.Screens.AdminScreens
             textBox2.Text = "";
         }
 
-
     }
 }

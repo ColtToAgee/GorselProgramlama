@@ -19,6 +19,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
         public SupplierStorageManagementEditStorageScreen()
         {
             InitializeComponent();
+            //Kullanıcının depolarının listelendiği kısım
             using(var db = new DbService())
             {
                 var storages = db.GetList<Storages>($"{nameof(Storages.StorageOwnerUsername)}='{StaticEntities.ActiveUsername}'");
@@ -28,6 +29,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablodan alan seçtiği anda değişkene atama ve boşlukları doldurma kısmı
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedStorage.Id = (int)selectedRow.Cells[4].Value;
@@ -41,6 +43,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Kaydet butonunun çalıştığı kısım
             using(var db = new DbService()) 
             {
                 var storage = db.FirstOrDefault<Storages>($"{nameof(Storages.Id)}={SelectedStorage.Id}");

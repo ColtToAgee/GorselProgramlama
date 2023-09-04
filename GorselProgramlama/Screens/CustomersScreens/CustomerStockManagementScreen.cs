@@ -23,6 +23,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
             InitializeComponent();
             using(var db = new DbService())
             {
+                //Kullanıcının depolarının depo seçiniz alanına eklendiği kısım
                 var storageList = db.GetList<Storages>($"{nameof(Storages.StorageOwnerUsername)}='{StaticEntities.ActiveUsername}'");
                 foreach (var storage in storageList)
                 {
@@ -34,6 +35,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            //Kullanıcı seçtiği anda tablonun doldurulduğu kısım
             SelectedStorage = comboBox2.GetItemText(comboBox2.SelectedItem);
             if (SelectedStorage != "")
             {
@@ -56,6 +58,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            //Kullanıcı tablodan bir kayıt seçtiğinde değişkene attığı kısım
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedStock.Storage = selectedRow.Cells[0].Value.ToString();
@@ -68,6 +71,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //Düzenleye basınca çalışacak kısım
             if (comboBox1.Text != "" && numericUpDown1 != null)
             {
                 if (SelectedStock == null)

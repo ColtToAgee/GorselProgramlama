@@ -21,12 +21,14 @@ namespace GorselProgramlama.Screens.SupplierScreens
             InitializeComponent();
             using(var db = new DbService())
             {
+                //Kullanıcının depolarının listelendiği kısım
                 dataGridView1.DataSource = db.GetList<Storages>($"{nameof(Storages.StorageOwnerUsername)}='{StaticEntities.ActiveUsername}'");
             }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablodan alan seçtiği anda değişkene attığı kısım
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedStorageId = selectedRow.Cells[4].Value.ToString();
@@ -34,6 +36,7 @@ namespace GorselProgramlama.Screens.SupplierScreens
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Silme butonunun çalıştığı kısım
             using(var db = new DbService())
             {
                 if (SelectedStorageId != null)

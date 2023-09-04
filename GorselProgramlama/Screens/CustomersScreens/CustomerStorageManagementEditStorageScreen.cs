@@ -19,6 +19,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
         public CustomerStorageManagementEditStorageScreen()
         {
             InitializeComponent();
+            //Depoların Listelendiği Kısım
             using (var db = new DbService())
             {
                 var storages = db.GetList<Storages>($"{nameof(Storages.StorageOwnerUsername)}='{StaticEntities.ActiveUsername}'");
@@ -28,6 +29,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //Kaydete basınca deponun eklendiği kısım
             using (var db = new DbService())
             {
                 var storage = db.FirstOrDefault<Storages>($"{nameof(Storages.Id)}={SelectedStorage.Id}");
@@ -47,6 +49,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            //Tablo üzerinden bir kayıta çift tıklandığında otomatik olarak aktarılıyor.
             var selectedRowIndex = e.RowIndex;
             var selectedRow = dataGridView1.Rows[selectedRowIndex];
             SelectedStorage.Id = (int)selectedRow.Cells[4].Value;
