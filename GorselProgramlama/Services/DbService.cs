@@ -1,26 +1,24 @@
 ﻿using Dapper;
 using GorselProgramlama.Models;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing.Imaging;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GorselProgramlama.Services
 {
-    public class DbService:IDisposable
+    public class DbService : IDisposable
     {
         IDbConnection conn;
         /// <summary>
         /// DbService oluşturulduğu anda bağlantının açılmasını sağlar.
         /// </summary>
-        public DbService() {
-            conn = new SqlConnection("data source=DESKTOP-3TJ90CS; initial catalog=SupplyManagement; integrated security=true;");
+        public DbService()
+        {
+            var connString = ConfigurationManager.ConnectionStrings["Context"].ConnectionString;
+            conn = new SqlConnection(connString);
             conn.Open();
         }
 
@@ -30,7 +28,7 @@ namespace GorselProgramlama.Services
         /// <typeparam name="T"></typeparam>
         /// <param name="where"></param>
         /// <returns></returns>
-        public List<T> GetList<T>(string where="RowStateId<>3") where T : BaseEntity
+        public List<T> GetList<T>(string where = "RowStateId<>3") where T : BaseEntity
         {
             try
             {
@@ -38,7 +36,7 @@ namespace GorselProgramlama.Services
 
                 return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 LogService.CreateErrorLog(ex);
                 return new List<T>();
@@ -51,7 +49,7 @@ namespace GorselProgramlama.Services
         /// <typeparam name="T"></typeparam>
         /// <param name="where"></param>
         /// <returns></returns>
-        public T FirstOrDefault<T>(string where= "RowStateId<>3") where T : class
+        public T FirstOrDefault<T>(string where = "RowStateId<>3") where T : class
         {
             try
             {

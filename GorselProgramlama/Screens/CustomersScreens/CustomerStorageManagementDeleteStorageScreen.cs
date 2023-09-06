@@ -40,7 +40,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
             }
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             //Tablo üzerinden kayıt seçilip hangi kayıdın silinceği belli ediliyor.
             var selectedRowIndex = e.RowIndex;

@@ -22,6 +22,7 @@ namespace GorselProgramlama.Screens.CustomersScreens
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //Deponun eklendiği fonksiyon
             var newStorage = new Storages();
             newStorage.StorageOwnerUsername = StaticEntities.ActiveUsername;
             newStorage.StorageLocation = textBox2.Text;
